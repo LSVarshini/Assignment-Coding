@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Temperature</title>
+    </head>
+    <script>
+        var a=parseInt(document.getElementById("t").value);
+        function celcius(){
+            var c=5*(a-32)/9;
+            document.getElementById("res").value=c;
+        }
+        function fahrenheit(){
+            var c=((9*a)/5)+32;
+            document.getElementById("res").value=c;
+        }
+    </script>
+    <body>
+        <center>
+            <form>
+                Enter Temperature:<input type="number" id="t"><br>
+                <input type="button" onclick="celcius()" value="°C">
+                <input type="button" onclick="fahrenheit()" value="°f"><br>
+                Temperature:<input type="text" id="res">
+            </form>
+        </center>
+    </body>
+</html>
