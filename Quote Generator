@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motivational Quotes</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #ffffff;
+    }
+
+    .quote-container {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 30px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .quote {
+      font-size: 1.5rem;
+      font-style: italic;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #ffffff;
+      color: #2a5298;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #f0f0f0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .quote-container {
+        padding: 20px;
+      }
+
+      .quote {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-container">
+    <div class="quote" id="quote">Loading...</div>
+    <button class="button" onclick="showQuote()">Next Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      "When you got a dream, you've got to grab it and never let it go.",
+      "If you can't find a way, create one.",
+      "Push yourself, because no one else is going to do it for you.",
+      "Great things never come from comfort zones.",
+      "Little things make big days.",
+      "The life in front of you is far more important than the life behind.",
+      "You only live once, but if you do it right, once is enough.",
+      "The harder you work for something, the greater you’ll feel when you achieve it.",
+      "Don’t watch the clock; do what it does. Keep going.",
+      "Do thing that make you happy."
+    ];
+
+    function showQuote() {
+      const quoteElement = document.getElementById('quote');
+      quoteElement.style.opacity = 0;
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        quoteElement.textContent = quotes[randomIndex];
+        quoteElement.style.opacity = 1;
+      }, 300);
+    }
+
+    window.onload = showQuote;
+  </script>
+</body>
+</html>
